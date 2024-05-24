@@ -1,9 +1,12 @@
 #[allow(non_snake_case)]
 
 mod datapackage;
+mod dashboard;
 
 use dioxus::prelude::*;
 use crate::datapackage::Datapackage;
+use crate::dashboard::Dashboard;
+use datapackage::*;
 
 
 const _STYLE: &str = manganis::mg!(file("public/tailwind.css"));
@@ -16,7 +19,8 @@ pub static API_URL: &str = "https://backboard.vercel.app/datapackage.json";
 
 
 fn main() {
-    launch(App);
+    // launch(App);
+    launch(Dashboard);
 }
 
 fn App() -> Element {

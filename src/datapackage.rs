@@ -108,3 +108,100 @@ pub struct Source {
     pub path: String,
     pub title: String,
 }
+
+//// posts and teams
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct ActivityRoot {
+    pub activities: Vec<Activity>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct Activity {
+    pub action: String,
+    pub content: String,
+    pub date: String,
+    pub id: i64,
+    pub name: String,
+    pub project_id: i64,
+    pub project_name: String,
+    pub project_phase: String,
+    pub project_score: i64,
+    pub ref_url: String,
+    pub time: i64,
+    pub timesince: String,
+    pub user_id: i64,
+    pub user_name: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct ProjectsRoot {
+    pub event: Event,
+    pub projects: Vec<Project>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct Event {
+    pub community_url: String,
+    pub ends_at: String,
+    pub gallery_url: String,
+    pub has_finished: bool,
+    pub has_started: bool,
+    pub hashtags: String,
+    pub hostname: String,
+    pub id: i64,
+    pub location: String,
+    pub location_lat: f64,
+    pub location_lon: f64,
+    pub logo_url: String,
+    pub name: String,
+    pub starts_at: String,
+    pub summary: String,
+    pub webpage_url: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct Project {
+    pub autotext_url: String,
+    pub category_id: String,
+    pub category_name: String,
+    pub contact_url: String,
+    pub created_at: String,
+    pub download_url: String,
+    pub event_name: String,
+    pub event_url: String,
+    pub excerpt: String,
+    pub hashtag: String,
+    pub id: i64,
+    pub ident: String,
+    pub image_url: String,
+    pub is_challenge: bool,
+    pub is_webembed: bool,
+    pub logo_color: String,
+    pub logo_icon: String,
+    pub maintainer: String,
+    pub name: String,
+    pub phase: String,
+    pub progress: i64,
+    pub score: i64,
+    pub source_url: String,
+    #[serde(rename = "stats-commits")]
+    pub stats_commits: i64,
+    #[serde(rename = "stats-during")]
+    pub stats_during: i64,
+    #[serde(rename = "stats-people")]
+    pub stats_people: i64,
+    #[serde(rename = "stats-sizepitch")]
+    pub stats_sizepitch: i64,
+    #[serde(rename = "stats-sizetotal")]
+    pub stats_sizetotal: i64,
+    #[serde(rename = "stats-total")]
+    pub stats_total: i64,
+    #[serde(rename = "stats-updates")]
+    pub stats_updates: i64,
+    pub summary: String,
+    pub team: String,
+    pub team_count: i64,
+    pub updated_at: String,
+    pub url: String,
+    pub webpage_url: String,
+}
